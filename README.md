@@ -5,7 +5,7 @@ A theme picker component for MudBlazor applications that allows users to discove
 ## Features
 
 - 🎨 **Dynamic Theme Switching** - Switch between themes on the fly without reloading the page
-- 🔍 **Easy Theme Discovery** - Provide a collection of themes for users to choose from
+- 🔍 **Automatic Theme Discovery** - Drop in new `MudTheme` classes and have them show up instantly
 - 🎯 **Simple Integration** - Just a few lines of code to add to your MudBlazor app
 - 💡 **Customizable Themes** - Define your own custom themes with MudBlazor's theming system
 
@@ -35,41 +35,42 @@ builder.Services.AddMudThemePicker();
 
 ### 1. Define Your Themes
 
-Create a collection of theme definitions:
+Create `MudTheme` subclasses anywhere in your project. The class name is automatically converted into a readable label (camel casing with the `Theme` suffix removed) and you can opt-in to descriptions with `DescriptionAttribute`.
 
 ```csharp
+using System.ComponentModel;
 using MudBlazor;
-using MudThemePicker;
 
-public static class MyThemes
+[Description("Default MudBlazor look and feel")]
+public class DefaultTheme : MudTheme
 {
-    public static IEnumerable<ThemeDefinition> GetThemes()
+    public DefaultTheme()
     {
-        return new[]
+        PaletteLight = new PaletteLight
         {
-            new ThemeDefinition
-            {
-                Name = "Default",
-                Description = "Default MudBlazor theme",
-                Theme = new MudTheme()
-            },
-            new ThemeDefinition
-            {
-                Name = "Dark Mode",
-                Description = "Dark theme with blue accent",
-                Theme = new MudTheme
-                {
-                    PaletteDark = new PaletteDark
-                    {
-                        Primary = Colors.Blue.Lighten1,
-                        Surface = "#1e1e2e",
-                        Background = "#1a1a27",
-                    }
-                }
-            }
+            Primary = Colors.Blue.Default,
         };
     }
 }
+
+public class DarkModeTheme : MudTheme
+{
+    public DarkModeTheme()
+    {
+        PaletteDark = new PaletteDark
+        {
+            Primary = Colors.Blue.Lighten1,
+            Surface = "#1e1e2e",
+            Background = "#1a1a27",
+        };
+    }
+}
+```
+
+To expose these themes to the picker call `ThemeDiscovery` once at startup (or wrap it the way that works best for your app):
+
+```csharp
+var themes = ThemeDiscovery.DiscoverThemes(typeof(DefaultTheme).Assembly);
 ```
 
 ### 2. Wrap Your App with ThemePickerProvider
@@ -86,7 +87,9 @@ In your `App.razor`, wrap your router with the `ThemePickerProvider`:
 </ThemePickerProvider>
 
 @code {
-    private global::MudThemePicker.ThemeDefinition _defaultTheme = MyThemes.GetThemes().First();
+    private global::MudThemePicker.ThemeDefinition _defaultTheme = ThemeDiscovery
+        .DiscoverThemes(typeof(DefaultTheme).Assembly)
+        .First();
 }
 ```
 
@@ -100,7 +103,7 @@ Add the `ThemePicker` component anywhere in your layout (e.g., in the app bar):
 <MudAppBar>
     <MudText Typo="Typo.h5">My App</MudText>
     <MudSpacer />
-    <ThemePicker Themes="@MyThemes.GetThemes()" />
+    <ThemePicker Themes="@ThemeDiscovery.DiscoverThemes(typeof(DefaultTheme).Assembly)" />
 </MudAppBar>
 ```
 
@@ -143,6 +146,14 @@ The theme picker dropdown component.
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `Themes` | `IEnumerable<ThemeDefinition>?` | Collection of available themes |
+
+### ThemeDiscovery
+
+Helpers for turning `MudTheme` subclasses into `ThemeDefinition` instances that the picker can display.
+
+| Method | Description |
+|--------|-------------|
+| `DiscoverThemes(params Assembly[] assemblies)` | Scans the supplied assemblies for `MudTheme` subclasses, creates instances, infers friendly names from the class name, and uses any `DescriptionAttribute` value as the description. |
 
 ### ThemeService
 

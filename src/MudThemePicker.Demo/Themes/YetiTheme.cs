@@ -1,19 +1,14 @@
-﻿using MudBlazor;
+using System.ComponentModel;
+using MudBlazor;
 
-namespace HomeSlice.Client.Theming;
+namespace MudThemePicker.Demo.Themes;
 
-public class YetiTheme
+[Description("Bootswatch inspired Yeti theme")]
+public class YetiTheme : MudTheme
 {
-    /* 
-    * Bootswatch v5.3.3 (https://bootswatch.com)
-    * Theme: yeti
-    * Copyright 2012-2024 Thomas Park
-    * Licensed under MIT
-    * Based on Bootstrap
-    */
-    public static readonly MudTheme Theme = new()
+    public YetiTheme()
     {
-        PaletteLight = new PaletteLight()
+        PaletteLight = new PaletteLight
         {
             TableHover = "rgba(0,0,0,0.0392156862745098)",
             OverlayLight = "rgba(255,255,255,0.4980392156862745)",
@@ -80,8 +75,9 @@ public class YetiTheme
             AppbarText = "#008cba",
             AppbarBackground = "#cce8f1",
             Black = "#000",
-        },
-        PaletteDark = new PaletteDark()
+        };
+
+        PaletteDark = new PaletteDark
         {
             Surface = "rgba(55,55,64,1)",
             Background = "rgba(50,51,61,1)",
@@ -137,8 +133,9 @@ public class YetiTheme
             AppbarText = "#008cba",
             AppbarBackground = "#001c25",
             Black = "#000",
-        },
-        LayoutProperties = new LayoutProperties()
+        };
+
+        LayoutProperties = new LayoutProperties
         {
             AppbarHeight = "64px",
             DefaultBorderRadius = "4px",
@@ -146,8 +143,9 @@ public class YetiTheme
             DrawerMiniWidthRight = "56px",
             DrawerWidthLeft = "240px",
             DrawerWidthRight = "240px",
-        },
-        Typography = new Typography()
+        };
+
+        Typography = new Typography
         {
             Default = new DefaultTypography
             {
@@ -206,71 +204,15 @@ public class YetiTheme
                 LetterSpacing = ".0075em",
                 TextTransform = "none",
             },
-            Subtitle1 = new Subtitle1Typography
-            {
-                FontWeight = "400",
-                FontSize = "1rem",
-                LineHeight = "1.75",
-                LetterSpacing = ".00938em",
-                TextTransform = "none",
-            },
-            Subtitle2 = new Subtitle2Typography
-            {
-                FontWeight = "500",
-                FontSize = ".875rem",
-                LineHeight = "1.57",
-                LetterSpacing = ".00714em",
-                TextTransform = "none",
-            },
-            Body1 = new Body1Typography
-            {
-                FontWeight = "400",
-                FontSize = "1rem",
-                LineHeight = "1.5",
-                LetterSpacing = ".00938em",
-                TextTransform = "none",
-            },
-            Body2 = new Body2Typography
-            {
-                FontWeight = "400",
-                FontSize = ".875rem",
-                LineHeight = "1.43",
-                LetterSpacing = ".01071em",
-                TextTransform = "none",
-            },
             Button = new ButtonTypography
             {
+                FontFamily = ["Roboto", "Helvetica", "Arial", "sans-serif"],
                 FontWeight = "500",
                 FontSize = ".875rem",
                 LineHeight = "1.75",
                 LetterSpacing = ".02857em",
                 TextTransform = "uppercase",
             },
-            Caption = new CaptionTypography
-            {
-                FontWeight = "400",
-                FontSize = ".75rem",
-                LineHeight = "1.66",
-                LetterSpacing = ".03333em",
-                TextTransform = "none",
-            },
-            Overline = new OverlineTypography
-            {
-                FontWeight = "400",
-                FontSize = ".75rem",
-                LineHeight = "2.66",
-                LetterSpacing = ".08333em",
-                TextTransform = "none",
-            },
-        },
-        ZIndex = new ZIndex()
-        {
-            AppBar = 1300,
-            Dialog = 1400,
-            Drawer = 1100,
-            Popover = 1200,
-            Snackbar = 1500,
-            Tooltip = 1600,
-        },
-    };
+        };
+    }
 }
