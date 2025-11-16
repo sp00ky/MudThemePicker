@@ -1,7 +1,7 @@
 @using MudBlazor
 @inject ThemeService ThemeService
 
-<MudMenu AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" 
+<MudMenu AnchorOrigin="@AnchorOrigin" TransformOrigin="@TransformOrigin" 
          Icon="@Icons.Material.Filled.Palette" 
          Label="@(ThemeService.CurrentTheme?.Name ?? "Select Theme")"
          Color="Color.Primary"
@@ -47,6 +47,18 @@
     /// </summary>
     [Parameter]
     public IEnumerable<ThemeDefinition>? Themes { get; set; }
+
+    /// <summary>
+    /// Gets or sets the anchor origin point for the menu
+    /// </summary>
+    [Parameter]
+    public Origin AnchorOrigin { get; set; } = Origin.BottomRight;
+
+    /// <summary>
+    /// Gets or sets the transform origin point for the menu
+    /// </summary>
+    [Parameter]
+    public Origin TransformOrigin { get; set; } = Origin.TopRight;
 
     private void SelectTheme(ThemeDefinition theme)
     {
