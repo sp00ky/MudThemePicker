@@ -1,0 +1,19 @@
+@inherits LayoutComponentBase
+
+<!-- Providers required for MudBlazor components -->
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudPopoverProvider />
+
+<div class="mud-app-container">
+    <MudAppBar Elevation="0">
+        <MudText Typo="Typo.h6">Mud Theme Picker</MudText>
+    </MudAppBar>
+
+    <MudMainContent>
+        <MudPaper Class="pa-6">
+            @Body
+        </MudPaper>
+    </MudMainContent>
+</div>
