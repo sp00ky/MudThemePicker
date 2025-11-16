@@ -5,27 +5,41 @@
          Icon="@Icons.Material.Filled.Palette" 
          Label="@(ThemeService.CurrentTheme?.Name ?? "Select Theme")"
          Color="Color.Primary"
-         Variant="Variant.Filled">
-    @if (Themes != null && Themes.Any())
-    {
-        @foreach (var theme in Themes)
+         Variant="Variant.Filled"
+         Class="theme-picker-menu">
+    <ChildContent>
+        @if (Themes != null && Themes.Any())
         {
-            <MudMenuItem OnClick="@(() => SelectTheme(theme))">
-                <div class="d-flex flex-column">
-                    <MudText Typo="Typo.body1">@theme.Name</MudText>
-                    @if (!string.IsNullOrEmpty(theme.Description))
-                    {
-                        <MudText Typo="Typo.caption" Color="Color.Secondary">@theme.Description</MudText>
-                    }
-                </div>
-            </MudMenuItem>
+            @foreach (var theme in Themes)
+            {
+                <MudMenuItem OnClick="@(() => SelectTheme(theme))" Class="theme-menu-item">
+                    <div class="d-flex flex-column">
+                        <MudText Typo="Typo.body1">@theme.Name</MudText>
+                        @if (!string.IsNullOrEmpty(theme.Description))
+                        {
+                            <MudText Typo="Typo.caption" Color="Color.Secondary">@theme.Description</MudText>
+                        }
+                    </div>
+                </MudMenuItem>
+            }
         }
-    }
-    else
-    {
-        <MudMenuItem Disabled="true">No themes available</MudMenuItem>
-    }
+        else
+        {
+            <MudMenuItem Disabled="true">No themes available</MudMenuItem>
+        }
+    </ChildContent>
 </MudMenu>
+
+<style>
+    .theme-picker-menu .mud-popover {
+        min-width: 300px;
+    }
+
+    .theme-menu-item {
+        min-width: 300px;
+        white-space: normal;
+    }
+</style>
 
 @code {
     /// <summary>
