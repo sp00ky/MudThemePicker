@@ -1,39 +1,32 @@
-﻿using MudBlazor;
+using System.ComponentModel;
+using MudBlazor;
 
-namespace HomeSlice.Client.Theming;
+namespace MudThemePicker.Demo.Themes;
 
-public static class FedExTheme
+[Description("A FedEx inspired palette with rich purple and orange hues.")]
+public class FedExTheme : MudTheme
 {
-    public static readonly MudTheme Theme = new()
+    public FedExTheme()
     {
-        PaletteLight = new PaletteLight()
+        PaletteLight = new PaletteLight
         {
-            // Core FedEx vibes
-            Secondary = "#4D148C",                 // FedEx Purple
+            Secondary = "#4D148C",
             SecondaryContrastText = "#FFFFFF",
-            Primary = "#FF6600",               // FedEx Orange
+            Primary = "#FF6600",
             PrimaryContrastText = "#FFFFFF",
-
-            // Supporting
             Tertiary = "#9C27B0",
             TertiaryContrastText = "#FFFFFF",
-
-            // Shell colors (more branded, less bland)
-            Background = "#F8F4FF",              // soft violet/brand white
-            BackgroundGray = "#F2ECFF",          // drawer/bg panels
-            Surface = "#FFFFFF",                 // cards, forms
+            Background = "#F8F4FF",
+            BackgroundGray = "#F2ECFF",
+            Surface = "#FFFFFF",
             DrawerBackground = "#F2ECFF",
             DrawerText = "#31125F",
             DrawerIcon = "#31125F",
             AppbarBackground = "#4D148C",
             AppbarText = "#FFFFFF",
-
-            // Text
             TextPrimary = "#1C1C28",
             TextSecondary = "#4F4F65",
             TextDisabled = "rgba(28,28,40,0.38)",
-
-            // Feedback
             Info = "#0EA5E9",
             InfoContrastText = "#FFFFFF",
             Success = "#2E7D32",
@@ -42,18 +35,13 @@ public static class FedExTheme
             WarningContrastText = "#4D148C",
             Error = "#E53935",
             ErrorContrastText = "#FFFFFF",
-
-            // Lines / tables (slight purple tint)
             LinesDefault = "rgba(77,20,140,0.14)",
             LinesInputs = "rgba(49,18,95,0.35)",
             TableLines = "rgba(77,20,140,0.10)",
             TableStriped = "rgba(77,20,140,0.03)",
             TableHover = "rgba(255,102,0,0.05)",
-
             Divider = "rgba(77,20,140,0.12)",
             DividerLight = "rgba(77,20,140,0.05)",
-
-            // Derived shades
             PrimaryDarken = "#3D0F6F",
             PrimaryLighten = "#845CBA",
             SecondaryDarken = "#CC5200",
@@ -68,33 +56,27 @@ public static class FedExTheme
             WarningLighten = "#FFE082",
             ErrorDarken = "#D32F2F",
             ErrorLighten = "#EF9A9A",
-
-            // Grays
             GrayDefault = "#9CA3AF",
             GrayLight = "#CBD5E1",
             GrayLighter = "#E5E7EB",
             GrayDark = "#4B5563",
             GrayDarker = "#374151",
-
             HoverOpacity = 0.06,
             RippleOpacity = 0.1,
             RippleOpacitySecondary = 0.15,
-
             OverlayDark = "rgba(15,23,42,0.45)",
             OverlayLight = "rgba(255,255,255,0.45)",
-        },
+        };
 
-        PaletteDark = new PaletteDark()
+        PaletteDark = new PaletteDark
         {
-            // make purple pop in dark
             Primary = "#A67BDA",
             PrimaryContrastText = "#0F172A",
             Secondary = "#FF8A33",
             SecondaryContrastText = "#0F172A",
             Tertiary = "#D1A6E5",
             TertiaryContrastText = "#0F172A",
-
-            Background = "#0E0B16",          // deep purple/indigo base
+            Background = "#0E0B16",
             BackgroundGray = "#151027",
             Surface = "#1F1534",
             DrawerBackground = "#151027",
@@ -102,11 +84,9 @@ public static class FedExTheme
             DrawerIcon = "#F3EFFF",
             AppbarBackground = "#4D148C",
             AppbarText = "#FFFFFF",
-
             TextPrimary = "#F3EFFF",
             TextSecondary = "rgba(243,239,255,0.6)",
             TextDisabled = "rgba(243,239,255,0.3)",
-
             Info = "#38BDF8",
             InfoContrastText = "#0F172A",
             Success = "#22C55E",
@@ -116,14 +96,12 @@ public static class FedExTheme
             Error = "#F43F5E",
             ErrorContrastText = "#FFFFFF",
             Dark = "#0F172A",
-
             LinesDefault = "rgba(243,239,255,0.12)",
             LinesInputs = "rgba(243,239,255,0.25)",
             TableLines = "rgba(243,239,255,0.12)",
             TableStriped = "rgba(166,123,218,0.06)",
             Divider = "rgba(243,239,255,0.12)",
             DividerLight = "rgba(243,239,255,0.05)",
-
             PrimaryDarken = "#845CBA",
             PrimaryLighten = "#C8AFE7",
             SecondaryDarken = "#E17010",
@@ -140,6 +118,6 @@ public static class FedExTheme
             ErrorLighten = "#FDA4AF",
             DarkDarken = "#020617",
             DarkLighten = "#1F2937",
-        },
-    };
+        };
+    }
 }
