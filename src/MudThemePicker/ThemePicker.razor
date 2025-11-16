@@ -1,0 +1,41 @@
+@using MudBlazor
+@inject ThemeService ThemeService
+
+<MudMenu AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" 
+         Icon="@Icons.Material.Filled.Palette" 
+         Label="@(ThemeService.CurrentTheme?.Name ?? "Select Theme")"
+         Color="Color.Primary"
+         Variant="Variant.Filled">
+    @if (Themes != null && Themes.Any())
+    {
+        @foreach (var theme in Themes)
+        {
+            <MudMenuItem OnClick="@(() => SelectTheme(theme))">
+                <div class="d-flex flex-column">
+                    <MudText Typo="Typo.body1">@theme.Name</MudText>
+                    @if (!string.IsNullOrEmpty(theme.Description))
+                    {
+                        <MudText Typo="Typo.caption" Color="Color.Secondary">@theme.Description</MudText>
+                    }
+                </div>
+            </MudMenuItem>
+        }
+    }
+    else
+    {
+        <MudMenuItem Disabled="true">No themes available</MudMenuItem>
+    }
+</MudMenu>
+
+@code {
+    /// <summary>
+    /// Gets or sets the collection of available themes
+    /// </summary>
+    [Parameter]
+    public IEnumerable<ThemeDefinition>? Themes { get; set; }
+
+    private void SelectTheme(ThemeDefinition theme)
+    {
+        ThemeService.SetTheme(theme);
+    }
+}
