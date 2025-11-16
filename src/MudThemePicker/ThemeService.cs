@@ -1,5 +1,3 @@
-using MudBlazor;
-
 namespace MudThemePicker;
 
 /// <summary>

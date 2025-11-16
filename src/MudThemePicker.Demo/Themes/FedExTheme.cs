@@ -1,0 +1,145 @@
+﻿using MudBlazor;
+
+namespace HomeSlice.Client.Theming;
+
+public static class FedExTheme
+{
+    public static readonly MudTheme Theme = new()
+    {
+        PaletteLight = new PaletteLight()
+        {
+            // Core FedEx vibes
+            Secondary = "#4D148C",                 // FedEx Purple
+            SecondaryContrastText = "#FFFFFF",
+            Primary = "#FF6600",               // FedEx Orange
+            PrimaryContrastText = "#FFFFFF",
+
+            // Supporting
+            Tertiary = "#9C27B0",
+            TertiaryContrastText = "#FFFFFF",
+
+            // Shell colors (more branded, less bland)
+            Background = "#F8F4FF",              // soft violet/brand white
+            BackgroundGray = "#F2ECFF",          // drawer/bg panels
+            Surface = "#FFFFFF",                 // cards, forms
+            DrawerBackground = "#F2ECFF",
+            DrawerText = "#31125F",
+            DrawerIcon = "#31125F",
+            AppbarBackground = "#4D148C",
+            AppbarText = "#FFFFFF",
+
+            // Text
+            TextPrimary = "#1C1C28",
+            TextSecondary = "#4F4F65",
+            TextDisabled = "rgba(28,28,40,0.38)",
+
+            // Feedback
+            Info = "#0EA5E9",
+            InfoContrastText = "#FFFFFF",
+            Success = "#2E7D32",
+            SuccessContrastText = "#FFFFFF",
+            Warning = "#FFC107",
+            WarningContrastText = "#4D148C",
+            Error = "#E53935",
+            ErrorContrastText = "#FFFFFF",
+
+            // Lines / tables (slight purple tint)
+            LinesDefault = "rgba(77,20,140,0.14)",
+            LinesInputs = "rgba(49,18,95,0.35)",
+            TableLines = "rgba(77,20,140,0.10)",
+            TableStriped = "rgba(77,20,140,0.03)",
+            TableHover = "rgba(255,102,0,0.05)",
+
+            Divider = "rgba(77,20,140,0.12)",
+            DividerLight = "rgba(77,20,140,0.05)",
+
+            // Derived shades
+            PrimaryDarken = "#3D0F6F",
+            PrimaryLighten = "#845CBA",
+            SecondaryDarken = "#CC5200",
+            SecondaryLighten = "#FF944D",
+            TertiaryDarken = "#7B1FA2",
+            TertiaryLighten = "#D1A6E5",
+            InfoDarken = "#0284C7",
+            InfoLighten = "#38BDF8",
+            SuccessDarken = "#256328",
+            SuccessLighten = "#4CAF50",
+            WarningDarken = "#FFA000",
+            WarningLighten = "#FFE082",
+            ErrorDarken = "#D32F2F",
+            ErrorLighten = "#EF9A9A",
+
+            // Grays
+            GrayDefault = "#9CA3AF",
+            GrayLight = "#CBD5E1",
+            GrayLighter = "#E5E7EB",
+            GrayDark = "#4B5563",
+            GrayDarker = "#374151",
+
+            HoverOpacity = 0.06,
+            RippleOpacity = 0.1,
+            RippleOpacitySecondary = 0.15,
+
+            OverlayDark = "rgba(15,23,42,0.45)",
+            OverlayLight = "rgba(255,255,255,0.45)",
+        },
+
+        PaletteDark = new PaletteDark()
+        {
+            // make purple pop in dark
+            Primary = "#A67BDA",
+            PrimaryContrastText = "#0F172A",
+            Secondary = "#FF8A33",
+            SecondaryContrastText = "#0F172A",
+            Tertiary = "#D1A6E5",
+            TertiaryContrastText = "#0F172A",
+
+            Background = "#0E0B16",          // deep purple/indigo base
+            BackgroundGray = "#151027",
+            Surface = "#1F1534",
+            DrawerBackground = "#151027",
+            DrawerText = "#F3EFFF",
+            DrawerIcon = "#F3EFFF",
+            AppbarBackground = "#4D148C",
+            AppbarText = "#FFFFFF",
+
+            TextPrimary = "#F3EFFF",
+            TextSecondary = "rgba(243,239,255,0.6)",
+            TextDisabled = "rgba(243,239,255,0.3)",
+
+            Info = "#38BDF8",
+            InfoContrastText = "#0F172A",
+            Success = "#22C55E",
+            SuccessContrastText = "#0F172A",
+            Warning = "#FACC15",
+            WarningContrastText = "#0F172A",
+            Error = "#F43F5E",
+            ErrorContrastText = "#FFFFFF",
+            Dark = "#0F172A",
+
+            LinesDefault = "rgba(243,239,255,0.12)",
+            LinesInputs = "rgba(243,239,255,0.25)",
+            TableLines = "rgba(243,239,255,0.12)",
+            TableStriped = "rgba(166,123,218,0.06)",
+            Divider = "rgba(243,239,255,0.12)",
+            DividerLight = "rgba(243,239,255,0.05)",
+
+            PrimaryDarken = "#845CBA",
+            PrimaryLighten = "#C8AFE7",
+            SecondaryDarken = "#E17010",
+            SecondaryLighten = "#FFB173",
+            TertiaryDarken = "#B581D0",
+            TertiaryLighten = "#E7D2F3",
+            InfoDarken = "#0EA5E9",
+            InfoLighten = "#7DD3FC",
+            SuccessDarken = "#16A34A",
+            SuccessLighten = "#4ADE80",
+            WarningDarken = "#EAB308",
+            WarningLighten = "#FDE68A",
+            ErrorDarken = "#E11D48",
+            ErrorLighten = "#FDA4AF",
+            DarkDarken = "#020617",
+            DarkLighten = "#1F2937",
+        },
+    };
+}
