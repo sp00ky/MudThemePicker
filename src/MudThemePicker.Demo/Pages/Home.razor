@@ -1,0 +1,85 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Welcome to MudThemePicker!</MudText>
+<MudText Typo="Typo.body1" GutterBottom="true">
+    This demo showcases the MudThemePicker component for MudBlazor applications.
+</MudText>
+
+<MudPaper Class="pa-4 mt-4">
+    <MudText Typo="Typo.h5" GutterBottom="true">Features</MudText>
+    <MudList T="string">
+        <MudListItem T="string" Icon="@Icons.Material.Filled.Palette">
+            <MudText>Discover and apply themes dynamically</MudText>
+        </MudListItem>
+        <MudListItem T="string" Icon="@Icons.Material.Filled.SwapHoriz">
+            <MudText>Switch between themes on the fly</MudText>
+        </MudListItem>
+        <MudListItem T="string" Icon="@Icons.Material.Filled.Code">
+            <MudText>Easy integration with any MudBlazor app</MudText>
+        </MudListItem>
+        <MudListItem T="string" Icon="@Icons.Material.Filled.Lightbulb">
+            <MudText>Define your own custom themes</MudText>
+        </MudListItem>
+    </MudList>
+</MudPaper>
+
+<MudPaper Class="pa-4 mt-4">
+    <MudText Typo="Typo.h5" GutterBottom="true">How to Use</MudText>
+    <MudText Typo="Typo.body1" Class="mb-2">
+        1. Click the theme picker button in the top-right corner of the app bar
+    </MudText>
+    <MudText Typo="Typo.body1" Class="mb-2">
+        2. Select a theme from the dropdown menu
+    </MudText>
+    <MudText Typo="Typo.body1">
+        3. Watch the application instantly update with your selected theme!
+    </MudText>
+</MudPaper>
+
+<MudPaper Class="pa-4 mt-4">
+    <MudText Typo="Typo.h5" GutterBottom="true">Sample Components</MudText>
+    <MudGrid>
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard>
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">Primary Button</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">
+                        Click Me
+                    </MudButton>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard>
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">Secondary Button</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudButton Variant="Variant.Filled" Color="Color.Secondary" FullWidth="true">
+                        Click Me
+                    </MudButton>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard>
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">Chip</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudChip T="string" Color="Color.Primary">Sample Chip</MudChip>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudPaper>

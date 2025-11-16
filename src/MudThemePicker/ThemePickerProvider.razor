@@ -1,0 +1,48 @@
+@using MudBlazor
+@inject ThemeService ThemeService
+@implements IDisposable
+
+<MudThemeProvider Theme="@_currentTheme" />
+@ChildContent
+
+@code {
+    private MudTheme _currentTheme = new();
+
+    /// <summary>
+    /// Child content to render
+    /// </summary>
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    /// <summary>
+    /// Gets or sets the default theme to use
+    /// </summary>
+    [Parameter]
+    public ThemeDefinition? DefaultTheme { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        // Set default theme if provided
+        if (DefaultTheme != null)
+        {
+            _currentTheme = DefaultTheme.Theme;
+            ThemeService.SetTheme(DefaultTheme);
+        }
+
+        // Subscribe to theme changes
+        ThemeService.ThemeChanged += OnThemeChanged;
+    }
+
+    private void OnThemeChanged(object? sender, ThemeDefinition theme)
+    {
+        _currentTheme = theme.Theme;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        ThemeService.ThemeChanged -= OnThemeChanged;
+    }
+}
