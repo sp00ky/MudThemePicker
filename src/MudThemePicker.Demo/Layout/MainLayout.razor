@@ -7,7 +7,7 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
         <MudText Typo="Typo.h5" Class="ml-3">MudThemePicker Demo</MudText>
         <MudSpacer />
-        <ThemePicker Themes="@ThemeProvider.GetThemes()" />
+        <ThemePicker />
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <NavMenu />
