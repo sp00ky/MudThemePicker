@@ -8,9 +8,9 @@
          Variant="Variant.Filled"
          Class="theme-picker-menu">
     <ChildContent>
-        @if (Themes != null && Themes.Any())
+        @if (EffectiveThemes != null && EffectiveThemes.Any())
         {
-            @foreach (var theme in Themes)
+            @foreach (var theme in EffectiveThemes)
             {
                 <MudMenuItem OnClick="@(() => SelectTheme(theme))" Class="theme-menu-item">
                     <div class="d-flex flex-column">
@@ -59,6 +59,8 @@
     /// </summary>
     [Parameter]
     public Origin TransformOrigin { get; set; } = Origin.TopRight;
+
+    private IEnumerable<ThemeDefinition> EffectiveThemes => Themes ?? ThemeService.AvailableThemes ?? Enumerable.Empty<ThemeDefinition>();
 
     private void SelectTheme(ThemeDefinition theme)
     {

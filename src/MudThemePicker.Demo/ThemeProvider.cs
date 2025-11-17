@@ -1,4 +1,3 @@
-using MudThemePicker;
 using MudThemePicker.Demo.Themes;
 
 namespace MudThemePicker.Demo;
