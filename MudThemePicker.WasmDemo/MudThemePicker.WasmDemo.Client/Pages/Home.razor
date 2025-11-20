@@ -1,7 +1,25 @@
-﻿@page "/"
+@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>MudThemePicker</PageTitle>
 
-<h1>Hello, world!</h1>
+<MudText Typo="Typo.h3" GutterBottom="true">MudThemePicker for Blazor WASM</MudText>
+<MudText Typo="Typo.body1" Class="mb-4">
+    Use the palette icon in the app bar to switch between the available MudBlazor themes.
+    The layout will update instantly without reloading the page.
+</MudText>
 
-Welcome to your new app.
+<MudPaper Class="pa-4" Elevation="1">
+    <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
+        <MudIcon Icon="@Icons.Material.Filled.Palette" Color="Color.Primary" Size="Size.Large" />
+        <MudText Typo="Typo.h6">Try picking the "Night Owl" theme for a darker look.</MudText>
+    </MudStack>
+
+    <MudDivider Class="my-4" />
+
+    <MudText Typo="Typo.subtitle1">What changed for WASM?</MudText>
+    <MudList Dense="true" T="string">
+        <MudListItem T="string">Added MudThemePicker services and MudBlazor to the WebAssembly host.</MudListItem>
+        <MudListItem T="string">Wrapped the router with <code>ThemePickerProvider</code> so themes apply across the app.</MudListItem>
+        <MudListItem T="string">Placed the <code>ThemePicker</code> in the app bar for quick switching.</MudListItem>
+    </MudList>
+</MudPaper>

@@ -3,7 +3,10 @@
 @implements IDisposable
 
 <MudThemeProvider Theme="@_currentTheme" />
-@ChildContent
+
+<CascadingValue Value="@_currentTheme">
+    @ChildContent
+</CascadingValue>
 
 @code {
     private MudTheme _currentTheme = new();
@@ -23,12 +26,15 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        
-        // Set default theme if provided
-        if (DefaultTheme != null)
+
+        var initialTheme = DefaultTheme
+            ?? ThemeService.CurrentTheme
+            ?? ThemeService.AvailableThemes?.FirstOrDefault();
+
+        if (initialTheme != null)
         {
-            _currentTheme = DefaultTheme.Theme;
-            ThemeService.SetTheme(DefaultTheme);
+            _currentTheme = initialTheme.Theme;
+            ThemeService.SetTheme(initialTheme);
         }
 
         // Subscribe to theme changes
