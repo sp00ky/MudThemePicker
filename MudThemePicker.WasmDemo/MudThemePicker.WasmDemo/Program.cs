@@ -1,4 +1,7 @@
+using MudBlazor.Services;
+using MudThemePicker;
 using MudThemePicker.WasmDemo.Client.Pages;
+using MudThemePicker.WasmDemo.Client.Themes;
 using MudThemePicker.WasmDemo.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddMudServices();
+builder.Services.AddMudThemePicker(typeof(DefaultTheme).Assembly);
 
 var app = builder.Build();
 
