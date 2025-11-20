@@ -2,9 +2,11 @@
 @inject ThemeService ThemeService
 @implements IDisposable
 
-<MudThemeProvider Theme="@_currentTheme">
+<MudThemeProvider Theme="@_currentTheme" />
+
+<CascadingValue Value="@_currentTheme">
     @ChildContent
-</MudThemeProvider>
+</CascadingValue>
 
 @code {
     private MudTheme _currentTheme = new();
